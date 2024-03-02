@@ -1,8 +1,9 @@
-const Item = ({ItemData,delData}) => {
+const Item = ({ItemData,delData,delOldData}) => {
   const {id,note,date,time} = ItemData;
 
   const deleteItem = () =>{
     delData((prev) => {
+      delOldData.current = true;
       return prev.filter(item => item.id !== id)
     })
   }

@@ -1,13 +1,13 @@
 import Item from './Item'
 
 
-const List = ({ListData,delData}) => {
+const List = ({ListData,delData,delOldData}) => {
   return (
     <div className='list'>
         {
             ListData.map((item)=>{
                 return (
-                    <Item ItemData={item} delData={delData}/>   
+                    <Item ItemData={item} delData={delData} delOldData={delOldData}/>   
                 )
             })
         }

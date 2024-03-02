@@ -6,6 +6,7 @@ import userEvent from '@testing-library/user-event';
 
 const Home = () => {
   const addNewData = useRef(false);
+  const delOldData = useRef(false);
   const [data,setData] = useState([{
     id:0,
     note:"歡迎使用備忘錄",
@@ -21,10 +22,18 @@ const Home = () => {
     addNewData.current = false;
   },[data]);
 
+  useEffect(()=>{
+    if(!delOldData.current){
+      return
+    }
+    window.alert('事項已刪除');
+    delOldData.current = false;
+  },[data]);
+
   return (
     <div className='app'>
         <Edit addData={setData} addNewData={addNewData}/>
-        <List ListData={data} delData={setData}/>
+        <List ListData={data} delData={setData} delOldData={delOldData}/>
     </div>
   )
 }
