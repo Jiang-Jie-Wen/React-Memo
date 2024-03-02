@@ -5,18 +5,23 @@ const Edit = ({addData,addNewData}) => {
   const noteChange = (e) => {
     setNote(e.target.value);
   }
+  //每當input變更，更新note值
   const [date,setDate] = useState('-- -- --');
   const dateChange = (e) => {
     setDate(e.target.value);
   }
+  //每當input變更，更新date值
   const [time,setTime] = useState('-- --');
   const timeChange = (e) => {
     setTime(e.target.value);
   }
+  //每當input變更，更新time值
 
   const addItem = () => {
     const now = new Date().getTime();
+    //以時間為id
     addNewData.current = true;
+    //新增事項設為true
     addData((prevData)=>{
         return [
             {

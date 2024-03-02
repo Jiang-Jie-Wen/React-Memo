@@ -5,7 +5,7 @@ const List = ({ListData,delData,delOldData}) => {
   return (
     <div className='list'>
         {
-            ListData.map((item)=>{
+            ListData.map((item)=>{  //將ListData中每筆資料顯示
                 return (
                     <Item ItemData={item} delData={delData} delOldData={delOldData}/>   
                 )
