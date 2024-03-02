@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 
-const Edit = ({addData}) => {
+const Edit = ({addData,addNewData}) => {
   const [note,setNote] = useState('');
   const noteChange = (e) => {
     setNote(e.target.value);
@@ -16,6 +16,7 @@ const Edit = ({addData}) => {
 
   const addItem = () => {
     const now = new Date().getTime();
+    addNewData.current = true;
     addData((prevData)=>{
         return [
             {
